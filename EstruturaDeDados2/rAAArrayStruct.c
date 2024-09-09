@@ -12,7 +12,7 @@ int main(){
 
     FILE *arquivo;
     Personagem party[3];
-    Personagem teste[3];
+    Personagem aux[3];
     char nArquivo[20];
 
     printf("Qual nome da campanha?\n");
@@ -48,13 +48,13 @@ int main(){
     rewind(arquivo);
     printf("\n\n\n\n\n\n");
 
-    if(fread(&teste, 3*sizeof(Personagem), 1, arquivo) != 1){
+    if(fread(&aux, 3*sizeof(Personagem), 1, arquivo) != 1){
         printf("Deu pau na leitura do arquivo D:");
         return 1;
     }
     
     for(int cont = 0; cont < 3; cont++){
-        printf("nome: %s\nlevel: %d\nmovimento: %.1lf\n\n", teste[cont].nome, teste[cont].level, teste[cont].movimento);
+        printf("nome: %s\nlevel: %d\nmovimento: %.1lf\n\n", aux[cont].nome, aux[cont].level, aux[cont].movimento);
     }
     
     fclose(arquivo);
